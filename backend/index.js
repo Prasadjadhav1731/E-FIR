@@ -4,15 +4,12 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const expressFileUploader = require("express-fileupload");
 const cors = require("cors");
-const cron = require("node-cron");
-const otpModel = require("./model/otpModel.js");
 const { initSocket } = require("./socket.js");
 const { cdnConnect } = require("./config/cdn.js");
 
 const signIn = require("./routes/signUp.js");
 const logIn = require("./routes/logIn.js");
 const townTreeFetch = require("./routes/townTreeFetch");
-const otpHandler = require("./routes/sendOtp.js");
 const complainant = require("./routes/complaints.js");
 const genAi = require("./routes/genAi.js");
 
@@ -43,20 +40,9 @@ app.use(
   })
 );
 
-cron.schedule("0 0 * * *", async () => {
-  try {
-    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
-    await otpModel.deleteMany({ createdAt: { $lt: twentyFourHoursAgo } });
-    console.log("Old OTP data deleted");
-  } catch (cronErr) {
-    console.error("Cron job error:", cronErr);
-  }
-});
-
 app.use("/api/v1", signIn);
 app.use("/api/v1", logIn);
 app.use("/api/v1", townTreeFetch);
-app.use("/api/v1", otpHandler);
 app.use("/api/v1/complaints", complainant);
 app.use("/api/v1", genAi);
 

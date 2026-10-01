@@ -1,6 +1,6 @@
 # 🚔 E-FIR (Electronic First Information Report System)
 
-An intelligent, full-stack dual-portal web application for filing, managing, and tracking First Information Reports (FIRs) with AI-powered legal categorization, real-time OTP authentication, and evidence document management.
+An intelligent, full-stack dual-portal web application for filing, managing, and tracking First Information Reports (FIRs) with AI-powered legal categorization, secure email authentication, and evidence document management.
 
 **Author**: [Prasad Jadhav](https://github.com/Prasadjadhav1731)  
 **Repository**: [https://github.com/Prasadjadhav1731/E-FIR](https://github.com/Prasadjadhav1731/E-FIR)
@@ -10,14 +10,14 @@ An intelligent, full-stack dual-portal web application for filing, managing, and
 ## 🌟 Key Features
 
 - 👮 **Dual-Portal System**:
-  - **Citizen Portal**: Register, authenticate via OTP/password, file complaints with detailed victim/accused/witness info, upload evidence, and track live FIR statuses.
+  - **Citizen Portal**: Register, authenticate via email/password, file complaints with detailed victim/accused/witness info, upload evidence, and track live FIR statuses.
   - **Super User / Police Portal**: Multi-parameter search & filtering (Incident Date, Last Edited, District, Sub-District, Legal Categories, Aadhaar, Status, Officer ID), review AI complaint summaries, view uploaded evidence, and record official remarks (`Completed` or `Park`).
 - 🤖 **AI-Powered Legal Assistant**:
   - Automatically generates concise FIR summaries and identifies relevant IPC/legal categories using **Google Gemini AI**.
 - ☁️ **Resilient Evidence Storage**:
   - Integrated Cloudinary storage for uploaded evidence files with fallback options.
 - 🔐 **Secure Authentication & Real-Time Sync**:
-  - Bcrypt password hashing, JWT token authentication, numeric OTP email verification, and **Socket.io** real-time updates.
+  - Bcrypt password hashing, JWT token authentication, email/password login, and **Socket.io** real-time updates.
 
 ---
 
@@ -123,4 +123,3 @@ E-FIR/
 ## 📄 License
 
 Distributed under the MIT License. Created by [Prasad Jadhav](https://github.com/Prasadjadhav1731).
-
